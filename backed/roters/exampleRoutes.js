@@ -2,20 +2,26 @@ const express = require('express');
 
 const roters = express.Router();
 
-const User = require('../models/exmplesModels')
+const Collection = require('../models/exmplesModels')
+
+roters.get('/', (req, res)=> {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+    // res.sendFile(ReactPath);
+});
 
 roters.post('/submit', async (req, res) => {
-    const user = new User(req.body);
+    
     try {
-        await user.save();
-        res.status(201).send(user);
+        const user = new Collection(req.body);
+        const saveEnter = await user.save()
+        res.status(200).json(saveEnter);
     } catch (error) {
         res.status(400).send(error);
     }
+    console.log("User saved successfully")
 })
 roters.get('/submit', async (req, res) => {
-    const users = await User.find({});
-    res.send(users); //
+   res.send("executed Success")
 })
 
 module.exports = roters;

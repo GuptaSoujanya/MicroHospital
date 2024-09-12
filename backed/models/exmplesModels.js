@@ -1,17 +1,17 @@
 const mongos = require('mongoose');
 
-const UserSchema = new mongos.Schema({
+const Collection = new mongos.Schema({
     inputPatientName: {
         type: String,
         required: true
     },
-    inputDoctorName : { 
+    inputDoctorName: { 
         type: String,
-        required: true,
+        
     },
     inputDepartmentName: {
         type: String,
-        required: true
+       
     },
     inputPhone: {
         type: Number,
@@ -19,14 +19,12 @@ const UserSchema = new mongos.Schema({
     },
     inputSymptoms: {
       type: String,
-      required: true
     },
     inputDate:{
         type: Date,
-        required: true,
         default: new Date
     },
     
 });
 
-module.exports = mongos.model('User', UserSchema);
+module.exports = mongos.model('dataCollection', Collection);

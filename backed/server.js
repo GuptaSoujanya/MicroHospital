@@ -12,16 +12,12 @@ const app = express();
 
 const exampleRoutes = require('./roters/exampleRoutes')
 
-app.use('api/submit', exampleRoutes)
-
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../build')));
 
-app.get('/', (req, res)=> {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
-    // res.sendFile(ReactPath);
-});
+
+app.use('/', exampleRoutes)
  const PORT =process.env.PORT || 8000
 app.listen(PORT, ()=> {
     console.log(`Server is running on port ${PORT}`);

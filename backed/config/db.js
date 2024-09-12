@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017';
+const mongoURI = 'mongodb+srv://soujanyagupta:ZK0YtrTlSU0no2iR@microhospital.sm2ox.mongodb.net/?retryWrites=true&w=majority&appName=MicroHospital';
 
 const connectDB = async () =>{
     try {
